@@ -7,106 +7,111 @@ import tkinter as tk
 from tkinter import ttk 
 from Calculos import Calculos
 
+# PARTE DE LA CREACION DE LA VENTANA
 interruptor = False
 ventana = tk.Tk()
 ventana.title("Calculadora")
 ventana.resizable(1, 1)
-resultado =ttk.Label(ventana, text="0")
-resultado.grid(column=3, row=0)
-operador = ""
-numeros = [0,1,2,3,4,5,6,7,8,9]
-operadores  = ["/","*","-","+","%","!"]
 
-# def funcionPrueba():
-#         global interruptor
-#         if interruptor==True:
-#             btn.configure(text="a")
-#         else:
-#             btn.configure(text="Pulsa")
-#         interruptor=not interruptor
-        
-def guardarOperador():
-     operador = btn['text']
-        
-def guardarValor():
-     numeros.append(btn["text"])
+# RESULTADO
+resultadoVista =ttk.Label(ventana, text="")
+resultadoVista.grid(column=3, row=0)
+
+
+# PARTE DE LOS BOTONES
+numeros = ""
+numeros2 = ""
+operador = ""
+botones = [["AC","^","*","!"],
+               ["7","8","9","/"],
+               ["4","5","6","+"],
+               ["1","2","3","-"],
+               ["0",".","%","="]]
+
+
+# EJEMPLO BOTON
+# btn = ttk.Button(ventana, text="AC", command= limpiar)
+# btn.grid(column=0, row=1)
+
+# FUNCIONES
+
+def limpiarNumeros():
+     global numeros, numeros2, operador
+     numeros = ""
+     numeros2 = ""
+     operador = ""
+
+def limpiar():
+     global numeros, numeros2, operador
+     resultadoVista['text'] = 0
+     numeros = ""
+     numeros2 = ""
+     operador = ""
+
+
+
+def guardarOperacion(evento):
+     global numeros, numeros2, operador
+     boton = evento.widget.cget("text")
+     resultadoVista['text'] += boton
+     if boton == "AC":
+          limpiar()
+     elif boton in ["+","-","*","/","%","!","^"]:
+          operador = boton
+     elif boton == "." and operador == "":
+          numeros += "."
+     elif boton == "." and operador != "":
+          numeros2 += "."
+     elif boton == "=":
+          print(numeros)
+          print(numeros2)
+          resultadoVista['text'] = ""
+          calcular()
+     elif boton in ["0","1","2","3","4","5","6","7","8","9"] and operador == "":
+          numeros += boton
+     elif boton in ["0","1","2","3","4","5","6","7","8","9"] and operador != "":
+          numeros2 += boton
+
 
 def calcular():
      if operador == "+":
-          resultado['text'] = Calculos.sumar(numeros[0],numeros[1])
-          numeros = []
+          resultadoVista['text'] = Calculos.sumar(float(numeros),float(numeros2))
+          limpiarNumeros()
      elif operador == "-":
-          resultado['text'] = Calculos.restar(numeros[0],numeros[1])
-          numeros = []
+          resultadoVista['text'] = Calculos.restar(float(numeros),float(numeros2))
+          limpiarNumeros()
      elif operador == "*":
-          resultado['text'] = Calculos.multiplicar(numeros[0],numeros[1])
-          numeros = []
+          resultadoVista['text'] = Calculos.multiplicar(float(numeros),float(numeros2))
+          limpiarNumeros()
      elif operador == "/":
-          resultado['text'] = Calculos.dividir(numeros[0],numeros[1])
-          numeros = []
+          resultadoVista['text'] = Calculos.dividir(float(numeros),float(numeros2))
+          limpiarNumeros()
      elif operador == "%":
-          resultado['text'] = Calculos.modulo(numeros[0],numeros[1])
-          numeros = []
-     elif operador == "x!":
-          resultado['text'] = Calculos.factorial(numeros[0],numeros[1])
-          numeros = []
+          resultadoVista['text'] = Calculos.modulo(float(numeros),float(numeros2))
+          limpiarNumeros()
+     elif operador == "!":
+          resultadoVista['text'] = Calculos.factorial(float(numeros))
+          limpiarNumeros()
+     elif operador == "^":
+          resultadoVista['text'] = Calculos.potencia(float(numeros),float(numeros2))
+          limpiarNumeros()
 
 
-def limpiar():
-     resultado['text'] = 0
-     numeros = []
-     operador = ""
 
-a = {}
-k = 0
-while k < 10:
-    # dynamically create key
-    key = ...
-    # calculate value
-    value = ...
-    a[key] = value 
-    k += 1
-     
-
-# segunda fila
-btn = ttk.Button(ventana, text="AC", command= limpiar)
-btn.grid(column=0, row=1)
-btn = ttk.Button(ventana, text="/", command= guardarOperador)
-btn.grid(column=1, row=1)
-btn = ttk.Button(ventana, text="*", command= guardarOperador)
-btn.grid(column=2, row=1)
-btn = ttk.Button(ventana, text="-", command= guardarOperador)
-btn.grid(column=3, row=1)
-# tercera fila
-btn = ttk.Button(ventana, text="7", command= guardarValor)
-btn.grid(column=0, row=2)
-btn = ttk.Button(ventana, text="8", command= guardarValor)
-btn.grid(column=1, row=2)
-btn = ttk.Button(ventana, text="9", command= guardarValor)
-btn.grid(column=2, row=2)
-btn = ttk.Button(ventana, text="+", command= guardarOperador)
-btn.grid(column=3, row=2)
-# cuarta fila
-btn = ttk.Button(ventana, text="4", command= guardarValor)
-btn.grid(column=0, row=3)
-btn = ttk.Button(ventana, text="5", command= guardarValor)
-btn.grid(column=1, row=3)
-btn = ttk.Button(ventana, text="6", command= guardarValor)
-btn.grid(column=2, row=3)
-btn = ttk.Button(ventana, text="%", command= guardarOperador)
-btn.grid(column=3, row=3)
-# quinta fila
-btn = ttk.Button(ventana, text="1", command= guardarValor)
-btn.grid(column=0, row=4)
-btn = ttk.Button(ventana, text="2", command= guardarValor)
-btn.grid(column=1, row=4)
-btn = ttk.Button(ventana, text="3", command= guardarValor)
-btn.grid(column=2, row=4)
-btn = ttk.Button(ventana, text="x!", command= guardarOperador)
-btn.grid(column=3, row=4)
-
-btn = ttk.Button(ventana, text="Calcular", command= calcular)
-btn.grid(column=0, row=5, columnspan=4)
+# Diccionario para mantener referencias de los botones
+diccionarioBotones = {}
+# Número de filas que contienen botones
+for i in range(len(botones)):  
+     # Número de columnas  
+     for j in range(len(botones[i])):  
+          # Creando los botones
+          diccionarioBotones["btn_"+str(botones[i][j])] = ttk.Button(ventana, text=str(botones[i][j]))
+           
+          # Posicionando los botones
+          diccionarioBotones["btn_"+str(botones[i][j])].grid(row=i+1, column=j, padx=5, pady=5, ipadx=5, ipady=5)
+           
+          # Asignando una acción a los botones
+          diccionarioBotones["btn_"+str(botones[i][j])].bind('<Button-1>', guardarOperacion)
 
 
 ventana.mainloop()
