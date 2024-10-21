@@ -11,18 +11,19 @@ interruptor = False
 ventana = tk.Tk()
 ventana.title("Calculadora")
 ventana.resizable(1, 1)
-lbEtiqueta =ttk.Label(ventana, text="0")
-lbEtiqueta.grid(column=3, row=0)
+resultado =ttk.Label(ventana, text="0")
+resultado.grid(column=3, row=0)
 operador = ""
-numeros = []
+numeros = [0,1,2,3,4,5,6,7,8,9]
+operadores  = ["/","*","-","+","%","!"]
 
-def funcionPrueba():
-        global interruptor
-        if interruptor==True:
-            btn.configure(text="a")
-        else:
-            btn.configure(text="Pulsa")
-        interruptor=not interruptor
+# def funcionPrueba():
+#         global interruptor
+#         if interruptor==True:
+#             btn.configure(text="a")
+#         else:
+#             btn.configure(text="Pulsa")
+#         interruptor=not interruptor
         
 def guardarOperador():
      operador = btn['text']
@@ -31,12 +32,40 @@ def guardarValor():
      numeros.append(btn["text"])
 
 def calcular():
-     lbEtiqueta['text'] = 'calculadisimo'
+     if operador == "+":
+          resultado['text'] = Calculos.sumar(numeros[0],numeros[1])
+          numeros = []
+     elif operador == "-":
+          resultado['text'] = Calculos.restar(numeros[0],numeros[1])
+          numeros = []
+     elif operador == "*":
+          resultado['text'] = Calculos.multiplicar(numeros[0],numeros[1])
+          numeros = []
+     elif operador == "/":
+          resultado['text'] = Calculos.dividir(numeros[0],numeros[1])
+          numeros = []
+     elif operador == "%":
+          resultado['text'] = Calculos.modulo(numeros[0],numeros[1])
+          numeros = []
+     elif operador == "x!":
+          resultado['text'] = Calculos.factorial(numeros[0],numeros[1])
+          numeros = []
+
 
 def limpiar():
-     lbEtiqueta['text'] = 0
+     resultado['text'] = 0
      numeros = []
      operador = ""
+
+a = {}
+k = 0
+while k < 10:
+    # dynamically create key
+    key = ...
+    # calculate value
+    value = ...
+    a[key] = value 
+    k += 1
      
 
 # segunda fila
