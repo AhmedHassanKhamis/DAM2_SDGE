@@ -1,1 +1,19 @@
 -descargar modulo de proyecto y parte de horas y hacer algunas actividades.
+
+
+21-10-2024
+pydev install
+
+
+pegar esto en eclipse
+help -> install software -> add 
+http://www.pydev.org/update
+
+selecciona todo al boton de select all 
+
+
+new -> pydev -> project
+
+version del python 3.10
+
+configurar la ruta del python en el link donde pone que configurar no se que.... que es un link azul
