@@ -14,7 +14,7 @@ ventana.title("Calculadora")
 ventana.resizable(1, 1)
 
 # RESULTADO
-resultadoVista =ttk.Label(ventana, text="")
+resultadoVista = ttk.Label(ventana, text="")
 resultadoVista.grid(column=3, row=0)
 
 
@@ -42,8 +42,8 @@ def limpiarNumeros():
      operador = ""
 
 def limpiar():
-     global numeros, numeros2, operador
-     resultadoVista['text'] = 0
+     global resultadoVista, numeros, numeros2, operador
+     resultadoVista['text'] = ""
      numeros = ""
      numeros2 = ""
      operador = ""
@@ -51,9 +51,10 @@ def limpiar():
 
 
 def guardarOperacion(evento):
-     global numeros, numeros2, operador
+     global resultadoVista, numeros, numeros2, operador
      boton = evento.widget.cget("text")
-     resultadoVista['text'] += boton
+     if boton != "AC":
+          resultadoVista['text'] = str(resultadoVista['text']) + boton
      if boton == "AC":
           limpiar()
      elif boton in ["+","-","*","/","%","!","^"]:
@@ -67,6 +68,7 @@ def guardarOperacion(evento):
           print(numeros2)
           resultadoVista['text'] = ""
           calcular()
+          limpiarNumeros()
      elif boton in ["0","1","2","3","4","5","6","7","8","9"] and operador == "":
           numeros += boton
      elif boton in ["0","1","2","3","4","5","6","7","8","9"] and operador != "":
