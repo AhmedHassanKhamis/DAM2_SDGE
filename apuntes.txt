@@ -17,3 +17,7 @@ new -> pydev -> project
 version del python 3.10
 
 configurar la ruta del python en el link donde pone que configurar no se que.... que es un link azul
+
+
+############# 19/11/2024 ##############
+instalar las extensiones de c sharp y de unity en el visual
