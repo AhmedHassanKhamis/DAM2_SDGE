@@ -19,5 +19,19 @@ version del python 3.10
 configurar la ruta del python en el link donde pone que configurar no se que.... que es un link azul
 
 
-############# 19/11/2024 ##############
-instalar las extensiones de c sharp y de unity en el visual
+
+
+
+---------------PYTHON---------------------------------
+
+instalar las librerias jinja2,pdfkit,
+
+jinja2 -> para rellenar los templates desde python
+pdfkit -> sirve para crear el pdf
+
+para instalarlos usar pip3
+
+pip apt-get install wkhtmltopdf
+
+which wkhtmltopdf para saber donde se me ha instalado
+
