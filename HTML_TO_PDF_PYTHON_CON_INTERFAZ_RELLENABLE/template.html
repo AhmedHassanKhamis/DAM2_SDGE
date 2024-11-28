@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="style.css">  <!-- Link to external CSS -->
+</head>
+<body>
+    <h1>{{ heading }}</h1>
+    <p>{{ content }}</p>
+    <hr/>
+<div>
+    <h2>Información del Alumno</h2>
+    <p><strong>DNI:</strong> {{ dni }}</p>
+    <p><strong>Nombre:</strong> {{ nombre }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ fecha_nacimiento }}</p>
+    <p><strong>Número de Teléfono:</strong> {{ telefono }}</p>
+</div>
+
+<h2>Notas</h2>
+<table border="1">
+    <tr>
+        <th>Asignatura</th>
+        <th>Nota</th>
+    </tr>
+    <tr>
+        <td>PSP</td>
+        <td>{{ nota_psp }}</td>
+    </tr>
+    <tr>
+        <td>AD</td>
+        <td>{{ nota_ad }}</td>
+    </tr>
+    <tr>
+        <td>DI</td>
+        <td>{{ nota_di }}</td>
+    </tr>
+    <tr>
+        <td>PMDM</td>
+        <td>{{ nota_pmdm }}</td>
+    </tr>
+    <tr>
+        <td>ING</td>
+        <td>{{ nota_ing }}</td>
+    </tr>
+    <tr>
+        <td>EIE</td>
+        <td>{{ nota_eie }}</td>
+    </tr>
+    <tr>
+        <td>SDGE</td>
+        <td>{{ nota_sdge }}</td>
+    </tr>
+</table>
+</body>
+</html>
