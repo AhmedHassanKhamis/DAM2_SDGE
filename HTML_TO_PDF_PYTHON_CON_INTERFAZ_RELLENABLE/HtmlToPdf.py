@@ -8,7 +8,7 @@ env = Environment(loader=FileSystemLoader(''))
 
 
 root = tk.Tk()
-root.geometry("300x400")
+root.geometry("350x450")
 root.title("GENERADOR_BOLETIN")
 
 labels = ["DNI", "Nombre", "Fecha de Nacimiento", "Teléfono", "Nota PSP", "Nota AD", "Nota DI", "Nota PMDM", "Nota ING", "Nota EIE", "Nota SDGE"]
