@@ -1,33 +1,58 @@
-<p><img id="logo" style="float: right;" src="https://site.educa.madrid.org/ies.villablanca.madrid//wp-content/uploads/ies.villablanca.madrid/2020/06/cropped-cropped-IES-Villablanca-horizontal-color-2.png" alt="Imagen" width="169" height="50" /></p>
-<p style="text-align: left;"><strong>Nombre</strong> : {{nombre}}</p>
-<p style="text-align: left;"><strong>Curso</strong>: {{curso}}</p>
-<hr />
-<table >
-<tbody>
-<tr style="height: 18px;">
-<td style="width: 60%; text-align: center; height: 18px;"><strong>M&oacute;dulo</strong></td>
-<td style="width: 40%; height: 18px; text-align: center;"><strong>Nota</strong></td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 59.6096%; height: 18px; text-align: center;">{{modulo1}}</td>
-<td style="width: 40.3904%; text-align: center; height: 18px;">{{nota1}}</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 59.6096%; height: 18px; text-align: center;">{{modulo2}}</td>
-<td style="width: 40.3904%; height: 18px; text-align: center;">{{nota2}}</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 59.6096%; height: 18px; text-align: center;">{{modulo3}}</td>
-<td style="width: 40.3904%; height: 18px; text-align: center;">{{nota3}}</td>
-</tr>
-<tr style="height: 18px;">
-<td style="width: 59.6096%; height: 18px; text-align: center;">{{modulo4}}</td>
-<td style="width: 40.3904%; height: 18px; text-align: center;">{{nota4}}</td>
-</tr>
-</tbody>
-</table>
-<p style="text-align: center;">{{tutor}}</p>
-<p style="text-align: center;">{{media}}</p>
-<p style="text-align: center;">{{fecha}}</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" type="text/css" href="style.css">  <!-- Link to external CSS -->
+</head>
+<body>
+    <h1>{{ heading }}</h1>
+    <p>{{ content }}</p>
+    <img id="logo" style="float: right;" src="https://site.educa.madrid.org/ies.villablanca.madrid//wp-content/uploads/ies.villablanca.madrid/2020/06/cropped-cropped-IES-Villablanca-horizontal-color-2.png" alt="Imagen" width="169" height="50" />
+    <hr/>
+<div>
+    <h2>Información del Alumno</h2>
+    <p><strong>DNI:</strong> {{ dni }}</p>
+    <p><strong>Nombre:</strong> {{ nombre }}</p>
+    <p><strong>Fecha de Nacimiento:</strong> {{ fecha_nacimiento }}</p>
+    <p><strong>Número de Teléfono:</strong> {{ telefono }}</p>
+</div>
 
-<!--<p><img id="logo" style="float: right;" src="./MediaClase.png" alt="Imagen" width="200" height="200" /></p>-->
+<h2>Notas</h2>
+<table border="1">
+    <tr>
+        <th>Asignatura</th>
+        <th>Nota</th>
+    </tr>
+    <tr>
+        <td>PSP</td>
+        <td>{{ nota_psp }}</td>
+    </tr>
+    <tr>
+        <td>AD</td>
+        <td>{{ nota_ad }}</td>
+    </tr>
+    <tr>
+        <td>DI</td>
+        <td>{{ nota_di }}</td>
+    </tr>
+    <tr>
+        <td>PMDM</td>
+        <td>{{ nota_pmdm }}</td>
+    </tr>
+    <tr>
+        <td>ING</td>
+        <td>{{ nota_ing }}</td>
+    </tr>
+    <tr>
+        <td>EIE</td>
+        <td>{{ nota_eie }}</td>
+    </tr>
+    <tr>
+        <td>SDGE</td>
+        <td>{{ nota_sdge }}</td>
+    </tr>
+</table>
+</body>
+</html>
